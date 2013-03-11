@@ -1,12 +1,26 @@
-!!! 5
-html
+doctype 5	
+html(lang='es')
 	head
-		title
+		title 
 			block title 
 
+		meta( name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+		meta(charset='utf-8')
 		link(rel='stylesheet', href='{{ MEDIA_URL }}css/style.css')
+		// libs
+
+		script(src='{{ MEDIA_URL }}js/lib/jq.js')
+		script(src='{{ MEDIA_URL }}js/lib/underscore.js')
+		script(src='{{ MEDIA_URL }}js/lib/backbone.js')
+
+		//core
+
+		script(src="{{ MEDIA_URL }}js/core/app.js")
 
 
 	body
 
 		block content
+
+
+
