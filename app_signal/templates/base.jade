@@ -6,6 +6,7 @@ html(lang='es')
 
 		meta( name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
 		meta(charset='utf-8')
+		link(rel='stylesheet', href='{{ MEDIA_URL }}css/normalize.css')
 		link(rel='stylesheet', href='{{ MEDIA_URL }}css/style.css')
 		// libs
 
@@ -15,12 +16,27 @@ html(lang='es')
 
 		//core
 
+		script(src="{{ MEDIA_URL }}js/core/class.js")
 		script(src="{{ MEDIA_URL }}js/core/app.js")
-
 
 	body
 
+
+		header 
+
+			span.logo Modulador Signal
+			ul
+				li.active Inicio
+				li Nuevo
+				li Ayuda
+
 		block content
+
+
+
+		#search_content  
+
+
 
 
 
