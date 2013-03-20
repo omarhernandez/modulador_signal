@@ -200,3 +200,11 @@ text-decoration: underline;
     top: -96px;
     display: none;
 }
+
+.bits_data {
+  font-size: 18px;
+    opacity: 5;
+    margin-top: -68px;
+    padding-left: 30px;
+    position: absolute;
+}

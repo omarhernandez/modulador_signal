@@ -22,15 +22,14 @@ EntradaBinaria  = {
 	validar : function(bits_length , conf ,data_valid ){
 
  	var is_valid =  false;
-
-this.graficar()
-
+ 
 	is_valid =  ( data_valid != null && bits_length == conf.MAX_SIZE  && data_valid[0].length == conf.MAX_SIZE ) ? true  : false ;
 
  	
  	if(is_valid){
 
- 		this.graficar()
+ 			bits_to_graph = [0,1,1,0,1,0,0,0,0,1,1,1,1,0,0,1];
+ 		this.graficar(bits_to_graph)
 
  	}else{
 
@@ -76,7 +75,14 @@ this.graficar()
 
 	},
 
-	graficar : function(){
+	graficar : function(bits_to_graph){
+
+// begin graph
+
+$(".bits_data").show();
+	$(".bits_data").html($(".bits_entree").val())
+					.delay(1200)
+					.animate( { letterSpacing : "68px" , opacity : 1},800);
 
 
 	$(".alert , .text_new").fadeOut("slow"); // octulamos  los elementos anteriores
@@ -84,8 +90,23 @@ this.graficar()
 	$("#graph").show();
 
 	var d1 = [];
-     for (var i = 0; i < 100; i += 0.5)
-         d1.push([i, Math.sin(i)]);
+
+	// vT = vp * sen ( 2 * PI * f1 * t )
+
+	var vT ; // forma de la onda FSK binaria 
+
+ 	var A = 12 //amplitud
+
+	var f = 1 / A ; //desplazamientos de igual magnitud pero sentidos opuestos de la 
+		         //frecuencia de la señal 
+
+		    	 // t = tiempo
+
+     for (var t = 0; t < 46; t += 0.1)
+
+    // vT  =	(( bits_to_graph[i] == 0 ) ?  Math.sin(2*Math.PI*i) : Math.sin(2*Math.PI*i) );
+ 
+     d1.push([ t , A* Math.sin(2* Math.PI*t *0.5) ]);
  
  
 
@@ -98,8 +119,22 @@ this.graficar()
      
      var somePlot = $.plot($("#graph"), [ d1  ]);
     
-    somePlot.getData()[1].lines.lineWidth = 20;
+   // somePlot.getData()[1].lines.lineWidth = 10;
     somePlot.draw();
+
+
+
+// end graph
+
+
+
+
+
+
+
+
+
+
 
 	}
 

@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 
 		bits_entree = $(bits).val();
  
-		EntradaBinaria.procesar(bits_entree);
+		EntradaBinaria.procesar( $(".bits_entree").val());
 
 
 	})
@@ -20,8 +20,11 @@ jQuery(document).ready(function($) {
 
 	$(".borrar").bind("click",function(){
 
-
+	 
 		$(bits).val("");
+		$(".bits_data").hide();
+		$("#graph").html("").hide();
+		$(".alert , .text_new").fadeIn("slow");
 
 
 	})

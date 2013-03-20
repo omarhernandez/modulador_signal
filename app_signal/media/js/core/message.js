@@ -17,9 +17,10 @@ message = {
 
 
 	 
-		$(this.conf.message_text).html("<span class='alert'>  ATENCION : " + help   + "</span>"  );
+	$(this.conf.message_text).html("<span class='alert'>  ATENCION : " + help   + "</span>"  );
+	
 	$(".alert").effect("bounce", { times:3 , direction : "up" }, 200);
-		
+
 	} ,
 
 	success : function(){
