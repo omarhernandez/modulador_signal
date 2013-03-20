@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 
 		bits_entree = $(bits).val();
  
-		EntradaBinaria.validar(bits_entree);
+		EntradaBinaria.procesar(bits_entree);
 
 
 	})

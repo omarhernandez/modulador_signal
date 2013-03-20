@@ -11,12 +11,19 @@ html(lang='es')
 		// libs
 
 		script(src='{{ MEDIA_URL }}js/lib/jq.js')
+		script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js')
+
+		script(src='{{ MEDIA_URL }}js/lib/jquery.flot.js')
+		script(src='{{ MEDIA_URL }}js/lib/probability.js')
+
+
 		script(src='{{ MEDIA_URL }}js/lib/underscore.js')
 		script(src='{{ MEDIA_URL }}js/lib/backbone.js')
 
 		//core
 
-		script(src="{{ MEDIA_URL }}js/core/class.js")
+		script(src="{{ MEDIA_URL }}js/core/message.js")
+		script(src="{{ MEDIA_URL }}js/core/EntradaBinaria.js")
 		script(src="{{ MEDIA_URL }}js/core/app.js")
 
 	body

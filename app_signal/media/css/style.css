@@ -27,7 +27,7 @@ header{
     color: white;
     float: left;
     height: 100%;
-    width: 304px;
+    width: 15%;
 }
 
 
@@ -40,11 +40,11 @@ header{
 
 
 .content {
-    background: none repeat scroll 0 0 white;
+background: none repeat scroll 0 0 white;
     box-shadow: -5px 1px 7px #222222;
     float: left;
     height: 100%;
-    width: 65%;
+    width: 85%;
 }
 
 header{
@@ -66,7 +66,7 @@ header ul {
 span.logo {
     float: left;
     font-size: 17px;
-    padding: 19px 77px;
+    padding: 19px 37px;
 }
 
 
@@ -100,42 +100,35 @@ header ul li.active{
 .button.gray{
 
    
- background: linear-gradient(#f1f2f3 0%, #DBDBEA 100%) repeat scroll 0 0 transparent;
-    border: 1px solid #999;
+  background: linear-gradient(#F1F2F3 0%, #DBDBEA 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #999999;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 0 rgba(255, 255, 255, 0.1);
-    color: #222;
-    display: inline;
-    float: left;
+    color: #222222;
+    display: inline-block;
     font-family: 'helvetica';
     padding: 16px 60px;
-    text-shadow: 0 -1px #fff;
+    text-shadow: 0 -1px #FFFFFF;
 
 }
 
 
 .button.blue{
 
- background: linear-gradient(#0683CB 0%, #06468D 100%) repeat scroll 0 0 transparent;
+  background: linear-gradient(#0683CB 0%, #06468D 100%) repeat scroll 0 0 transparent;
     border: 1px solid #09376A;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 0 rgba(255, 255, 255, 0.1);
     color: #FFFFFF;
     display: inline;
-    float: left;
     font-family: 'helvetica';
     padding: 16px 60px;
     text-shadow: 0 -1px #10599D;
 }
 
-
-#content_buttons .button{
- margin-left: 182px;
-    margin-top: 35px;
-}
-
-
+ 
 .content_bits .bits_entree{
-box-shadow: 6px 7px rgba(0, 0, 0, 0.3) inset;
-    color: #999;
+    box-shadow: 6px 7px rgba(0, 0, 0, 0.3) inset;
+    color: #999999;
+    display: inline-block;
     font-size: 24px;
     height: 52px;
     padding-left: 11px;
@@ -166,4 +159,44 @@ box-shadow: 6px 7px rgba(0, 0, 0, 0.3) inset;
 
 .span{
      font-family: "osanslight";
+}
+
+.alert{
+        color: #DC4C39;
+    font-size: 18px;
+ 
+}
+
+.message_text{
+    content: " ";
+    display: inline-block;
+}
+
+
+a{
+    color: #2B26D6;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+a:hover{
+
+text-decoration: underline;
+}
+
+#content_buttons{
+       
+    height: auto;
+    overflow-y: auto;
+    padding-top: 25px;
+    text-align: center;
+
+}
+
+
+#graph{
+    width:100%;height:300px;
+    top: -96px;
+    display: none;
 }
