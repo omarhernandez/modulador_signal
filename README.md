@@ -16,9 +16,18 @@ Clonar el Proyecto
 Dependencias
 ============
 
-implementación en Python de Jade llamada pyjade
+jade,
 
-`pip install pyjade
-`
+Sass,
 
+requirejs,
+
+backbone
+,
+django
+,
+ruby (  sass dependence )
+,
+jquery
+ 
 
