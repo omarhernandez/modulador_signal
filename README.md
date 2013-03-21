@@ -15,6 +15,9 @@ Clonar el Proyecto
 
 Dependencias
 ============
+nodejs, 
+
+coffescript ,
 
 jade,
 
@@ -26,8 +29,8 @@ backbone
 ,
 django
 ,
-ruby (  sass dependence )
+ruby 
 ,
-javascript
- 
+
+javascript 
 
