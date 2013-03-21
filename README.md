@@ -28,6 +28,6 @@ django
 ,
 ruby (  sass dependence )
 ,
-jquery
+javascript
  
 
