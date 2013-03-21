@@ -1,10 +1,10 @@
+define(["jquery", "message"], function($ , message) {
+        //return an object to define the "my/shirt" module.
+      	
+    EntradaBinaria = {}
 
-jQuery(document).ready(function($) {
-	
 
-EntradaBinaria = {}
-
-EntradaBinaria  = {
+   return EntradaBinaria  = {
 
 	conf : {
 
@@ -178,23 +178,21 @@ EntradaBinaria  = {
    // somePlot.getData()[1].lines.lineWidth = 10;
     somePlot.draw();
 
-
-
 // end graph
-
-
-
-
-
-
-
-
-
-
 
 	}
 
 }
+ 
+
+ 
 
 
-});
+    }// end funciton
+);// end define
+ 
+
+
+
+
+

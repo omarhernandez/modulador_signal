@@ -1,10 +1,10 @@
-jQuery(document).ready(function($) {
-	
+define(["jquery" ], function($) {
+ 
+ //return an object to define the "my/shirt" module.
+ 
+	message = { }
 
-
-message = { }
-
-message = {
+ return message = {
 
 	conf : {
 
@@ -36,4 +36,4 @@ message = {
 
 
 
-});
+}); // require
