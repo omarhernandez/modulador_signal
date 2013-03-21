@@ -88,7 +88,7 @@ EntradaBinaria  = {
 					.show()
   					.html($(".bits_entree").val())
 					.delay(1200)
-					.animate( { letterSpacing : "55px" , opacity : 1},800);
+					.animate( { letterSpacing : "51px" , opacity : 1},800);
 
 
 	$(".alert , .text_new").fadeOut("slow"); // octulamos  los elementos anteriores
@@ -131,10 +131,8 @@ EntradaBinaria  = {
 
      	if ( bits_to_graph[current_bit] == 1){ // cuando el BIT es 1
 
-
-     		var start_point_graph = current_bit;
  
-			for (var t = start_point_graph ; t <  offset; t += 0.1){
+			for (var t = current_bit ; t <  offset; t += 0.1){
  			
 
 								
@@ -145,10 +143,9 @@ EntradaBinaria  = {
 
 
      	}else{ // cuando el bit es 0
-
-     		var start_point_graph = current_bit;
+ 
 						
-			for (var t = start_point_graph ; t <  offset; t += 0.1){
+			for (var t = current_bit ; t <  offset; t += 0.1){
  			
  			   d1.push([ t , A* Math.sin(2* Math.PI * t *f1) ]);  // un 0
 					    

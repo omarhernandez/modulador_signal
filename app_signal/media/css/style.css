@@ -64,9 +64,11 @@ header ul {
     margin: 0;
 }
 span.logo {
-    float: left;
+  float: left;
     font-size: 17px;
-    padding: 19px 37px;
+    padding-top: 20px;
+    text-align: center;
+    width: 15%;
 }
 
 
