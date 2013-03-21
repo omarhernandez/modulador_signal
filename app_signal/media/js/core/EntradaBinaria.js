@@ -19,17 +19,17 @@ EntradaBinaria  = {
 
 
 
-	validar : function(bits_length , conf ,data_valid ){
+	validar : function(bits_data , conf ,data_valid ){
 
  	var is_valid =  false;
  
-	is_valid =  ( data_valid != null && bits_length == conf.MAX_SIZE  && data_valid[0].length == conf.MAX_SIZE ) ? true  : false ;
+	is_valid =  ( data_valid != null && bits_data.length == conf.MAX_SIZE  && data_valid[0].length == conf.MAX_SIZE ) ? true  : false ;
 
  	
  	if(is_valid){
 
- 			bits_to_graph = [0,1,1,0,1,0,0,0,0,1,1,1,1,0,0,1];
- 		this.graficar(bits_to_graph)
+ 			 
+ 		this.graficar(bits_data)
 
  	}else{
 
@@ -38,10 +38,10 @@ EntradaBinaria  = {
 
  		var help; 
 
- 		if(bits_length > 0 ){
+ 		if(bits_data.length > 0 ){
 
 
- 		help = " Hay <strong>" + bits_length + "</strong> Bits , " +valid_data_alternative ;
+ 		help = " Hay <strong>" + bits_data.length + "</strong> Bits , " +valid_data_alternative ;
 
  			
  	}else{
@@ -64,23 +64,29 @@ EntradaBinaria  = {
 	procesar : function(bits){
 
 
-	var bits_length = bits.length;
+	var bits_data = bits;
 
 	var conf = this.conf; 
 
 	var data_valid =  bits.match(conf.intRegex);
 
 
-	this.validar(bits_length , conf ,data_valid );
+	this.validar(bits_data , conf ,data_valid );
 
 	},
 
 	graficar : function(bits_to_graph){
 
 // begin graph
+//********************************************************************************************
+//*******************************************************************************************
+// quitamos todo lo que haya en la pantalla para mostrar la grafica
 
-$(".bits_data").show();
-	$(".bits_data").html($(".bits_entree").val())
+
+	// desencadenamos el evento ...
+	$(".bits_data")
+					.show()
+  					.html($(".bits_entree").val())
 					.delay(1200)
 					.animate( { letterSpacing : "55px" , opacity : 1},800);
 
@@ -88,10 +94,16 @@ $(".bits_data").show();
 	$(".alert , .text_new").fadeOut("slow"); // octulamos  los elementos anteriores
 
 	$("#graph").show();
+//********************************************************************************************
+//*******************************************************************************************
+
+
 
 	var d1 = [];
 
 	var d2 = [];
+
+// ********************************************************************************************
 
 	// vT = vp * sen ( 2 * PI * f1 * t )
 
@@ -107,10 +119,9 @@ $(".bits_data").show();
 		         //frecuencia de la señal 
 
 		    	 // t = tiempo
-		    	 console.log( bits_to_graph.length);
-    
+	 
 //********************************************************************************************
-
+//*******************************************************************************************
 
      for (var current_bit = 0; current_bit < 16; current_bit++) {
      	
@@ -152,7 +163,8 @@ $(".bits_data").show();
 
      }// end 16 bits 
  
-
+//********************************************************************************************
+//*******************************************************************************************
 //********************************************************************************************
 
  
