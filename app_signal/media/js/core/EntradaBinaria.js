@@ -82,7 +82,7 @@ EntradaBinaria  = {
 $(".bits_data").show();
 	$(".bits_data").html($(".bits_entree").val())
 					.delay(1200)
-					.animate( { letterSpacing : "68px" , opacity : 1},800);
+					.animate( { letterSpacing : "55px" , opacity : 1},800);
 
 
 	$(".alert , .text_new").fadeOut("slow"); // octulamos  los elementos anteriores
@@ -91,33 +91,80 @@ $(".bits_data").show();
 
 	var d1 = [];
 
+	var d2 = [];
+
 	// vT = vp * sen ( 2 * PI * f1 * t )
 
 	var vT ; // forma de la onda FSK binaria 
 
  	var A = 12 //amplitud
 
+ 	f1 = 1; // para 0
+
+ 	f2 = 4; // para 1 
+
 	var f = 1 / A ; //desplazamientos de igual magnitud pero sentidos opuestos de la 
 		         //frecuencia de la señal 
 
 		    	 // t = tiempo
+		    	 console.log( bits_to_graph.length);
+    
+//********************************************************************************************
 
-     for (var t = 0; t < 46; t += 0.1)
 
-    // vT  =	(( bits_to_graph[i] == 0 ) ?  Math.sin(2*Math.PI*i) : Math.sin(2*Math.PI*i) );
- 
-     d1.push([ t , A* Math.sin(2* Math.PI*t *0.5) ]);
- 
+     for (var current_bit = 0; current_bit < 16; current_bit++) {
+     	
+
+     	var offset =  current_bit + 1 ;
  
 
+     	if ( bits_to_graph[current_bit] == 1){ // cuando el BIT es 1
+
+
+     		var start_point_graph = current_bit;
+ 
+			for (var t = start_point_graph ; t <  offset; t += 0.1){
+ 			
+
+								
+				d1.push([ t , A* Math.sin(2* Math.PI * t *f2) ]); // un 1     
+ 						
+				}  // end for bit == 0
+
+
+
+     	}else{ // cuando el bit es 0
+
+     		var start_point_graph = current_bit;
+						
+			for (var t = start_point_graph ; t <  offset; t += 0.1){
+ 			
+ 			   d1.push([ t , A* Math.sin(2* Math.PI * t *f1) ]);  // un 0
+					    
+ 						
+			}  // end for bit == 1
+
+
+
+
+     	} // end else  bit == 1
+
+
+     }// end 16 bits 
+ 
+
+//********************************************************************************************
+
+ 
+ 
     //[x , y ] direccion ----> x 
 
-    //var d2 = [[0, 3], [1, 8], [2, 5], [3, 13]];
+    var recta = [[0, 0] , [19 , 0]];
  
      // a null signifies separate line segments
      //var d3 = [[1, 12], [7, 12], null, [7, 2.5], [12, 2.5]];
      
-     var somePlot = $.plot($("#graph"), [ d1  ]);
+     var somePlot = $.plot($("#graph"), [ d1 , recta ]);
     
    // somePlot.getData()[1].lines.lineWidth = 10;
     somePlot.draw();

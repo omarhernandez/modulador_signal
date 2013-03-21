@@ -202,9 +202,9 @@ text-decoration: underline;
 }
 
 .bits_data {
-  font-size: 18px;
-    opacity: 5;
+ font-size: 18px;
     margin-top: -68px;
-    padding-left: 30px;
+    opacity: 5;
+    padding-left: 35px;
     position: absolute;
 }
