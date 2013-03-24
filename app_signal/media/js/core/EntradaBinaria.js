@@ -134,11 +134,10 @@ define(["jquery", "message"], function($ , message) {
  
 			for (var t = current_bit ; t <  offset; t += 0.1){
  			
-
 								
-				d1.push([ t , A* Math.sin(2* Math.PI * t *f2) ]); // un 1     
+				d1.push([ t , (A)* Math.sin(2* Math.PI * t *f2) ]); // un 1     
  						
-				}  // end for bit == 0
+			}  // end for bit == 0
 
 
 
