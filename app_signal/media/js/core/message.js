@@ -1,8 +1,8 @@
-define(["jquery" ], function($) {
+define(["jquery.ui"  ], function($) {
  
  //return an object to define the "my/shirt" module.
  
-	message = { }
+	message = { } || message;
 
  return message = {
 

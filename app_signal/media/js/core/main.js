@@ -1,13 +1,15 @@
-
-
-
+ 
 requirejs.config({
 
 	paths : {
 
 		'EntradaBinaria' : "../core/EntradaBinaria" ,
 
-		'message' : "../core/message"
+		'message' : "../core/message" ,
+
+   
+
+        'jquery' : "../lib/jq" ,
 
 	},
 
@@ -30,11 +32,24 @@ requirejs.config({
 
             exports: '_'
 
+        } ,
+
+        'jquery.ui' : {
+
+             deps: ['jq'],
+
+             exports : '$'
+
+        },
+            'chart' : {
+
+             deps: ['jq'],
+
+             exports : '$'
+
         }
 
     	}
 })
-
-
  
 require(["../core/init"]);

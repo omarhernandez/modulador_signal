@@ -1,13 +1,12 @@
-define(["jquery", "message"], function($ , message) {
-        //return an object to define the "my/shirt" module.
-      	
+define(["chart", "message"], function($ , message ) {
+ 
     EntradaBinaria = {}
 
 
    return EntradaBinaria  = {
 
 	conf : {
-
+ 
 	 MAX_SIZE : 16 , 
 	 
 	 VALID :  false ,
@@ -177,11 +176,9 @@ define(["jquery", "message"], function($ , message) {
    // somePlot.getData()[1].lines.lineWidth = 10;
     somePlot.draw();
 
-// end graph
+}//end graph
 
-	}
-
-}
+} // end object
  
 
  
