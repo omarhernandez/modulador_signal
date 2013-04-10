@@ -35,6 +35,29 @@ define(["backbone",  "EntradaBinaria"],function(Backbone){
         
         
         })
+
+    //---------------------------------------------------------
+
+      $(".bits_entree").bind("keyup",function(){
+
+        var _length_bits =  $(".bits_entree").val().length;
+
+        if(_length_bits <= 16){
+
+        $(".counter_bits").html("Van "+ _length_bits +" Bits")
+      
+
+        }
+
+
+
+      })
+
+
+
+
+
+
        } // init 
       
 
