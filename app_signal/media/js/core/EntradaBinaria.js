@@ -112,7 +112,7 @@ define(["chart", "message"], function($ , message ) {
 
  	f1 = 1; // para 0
 
- 	f2 = 4; // para 1 
+ 	f2 = 3; // para 1 
 
 	var f = 1 / A ; //desplazamientos de igual magnitud pero sentidos opuestos de la 
 		         //frecuencia de la señal 
@@ -131,7 +131,7 @@ define(["chart", "message"], function($ , message ) {
      	if ( bits_to_graph[current_bit] == 1){ // cuando el BIT es 1
 
  
-			for (var t = current_bit ; t <  offset; t += 0.1){
+			for (var t = current_bit ; t <  offset; t += 0.001){
  			
 								
 				d1.push([ t , (A)* Math.sin(2* Math.PI * t *f2) ]); // un 1     
@@ -143,7 +143,7 @@ define(["chart", "message"], function($ , message ) {
      	}else{ // cuando el bit es 0
  
 						
-			for (var t = current_bit ; t <  offset; t += 0.1){
+			for (var t = current_bit ; t <  offset; t += 0.001){
  			
  			   d1.push([ t , A* Math.sin(2* Math.PI * t *f1) ]);  // un 0
 					    
