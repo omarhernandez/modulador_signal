@@ -143,7 +143,7 @@ define(["chart", "message"], function($ , message ) {
      	}else{ // cuando el bit es 0
  
 						
-			for (var t = current_bit ; t <  offset; t += 0.001){
+			for (var t = current_bit ; t <  offset; t += 0.1){
  			
  			   d1.push([ t , A* Math.sin(2* Math.PI * t *f1) ]);  // un 0
 					    
