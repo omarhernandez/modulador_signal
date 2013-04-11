@@ -44,7 +44,7 @@ define(["backbone",  "EntradaBinaria"],function(Backbone){
 
         if(_length_bits <= 16){
 
-        $(".counter_bits").html("Van "+ _length_bits +" Bits")
+        $(".counter_bits").html("<strong> "+ _length_bits +" </strong> Bits")
       
 
         }

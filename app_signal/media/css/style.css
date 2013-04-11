@@ -2,6 +2,30 @@
 @import url(font.css);
 
  
+.span > ul {
+    float: right;
+    margin: 0;
+}
+
+
+.span li {
+    float: left;
+    padding: 1px 19px;
+}
+
+.span input{
+
+
+ background: none repeat scroll 0 0 transparent;
+    border: 1px solid #BBBBBB;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 1px 3px #999999 inset;
+    margin-left: 5px;
+    padding-left: 3px;
+    padding-right: 4px;
+    text-align: center;
+    width: 40px;
+}
  
 
 body{

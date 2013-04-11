@@ -108,11 +108,11 @@ define(["chart", "message"], function($ , message ) {
 
 	var vT ; // forma de la onda FSK binaria 
 
- 	var A = 12 //amplitud
+ 	var A = (! isNaN(  $("#value_amplitud").val()) ) ?  $("#value_amplitud").val() : 20; //amplitud
 
- 	f1 = 1; // para 0
+ 	f1 = (! isNaN(  $("#value_bit_0").val()) ) ?  $("#value_bit_0").val() : 1;   // para 0
 
- 	f2 = 3; // para 1 
+ 	f2 = (! isNaN(  $("#value_bit_1").val()) ) ?  $("#value_bit_1").val() : 3;   // para 1 
 
 	var f = 1 / A ; //desplazamientos de igual magnitud pero sentidos opuestos de la 
 		         //frecuencia de la señal 
@@ -143,7 +143,7 @@ define(["chart", "message"], function($ , message ) {
      	}else{ // cuando el bit es 0
  
 						
-			for (var t = current_bit ; t <  offset; t += 0.1){
+			for (var t = current_bit ; t <  offset; t += .0001){
  			
  			   d1.push([ t , A* Math.sin(2* Math.PI * t *f1) ]);  // un 0
 					    
