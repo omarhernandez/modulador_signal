@@ -48,10 +48,14 @@ define(["backbone",  "EntradaBinaria"],function(Backbone){
       
 
         }
-
-
-
+ 
       })
+
+      //------------------------------------------------------------
+
+      $(".button_settings").bind("click",function(){ $(".settings").toggle(); });
+
+      $(".button_compare").bind("click",function(){ $(".compare").toggle(); });
 
 
 
