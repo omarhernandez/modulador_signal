@@ -246,8 +246,11 @@ header ul li.active{
 }
 
 .message_text{
+   background: none repeat scroll 0 0 white;
     content: " ";
     display: inline-block;
+    position: relative;
+    z-index: 2147483647;
 }
 
 
