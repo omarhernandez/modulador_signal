@@ -41,11 +41,13 @@ define(["chart", "message"], function($ , message ) {
 
  	if (this.conf.compare){
 
-	var amplitud = (! isNaN(  $("#value_amplitud").val()) ) ?  $("#value_amplitud").val() : 20; //amplitud
+	var amplitud = (! isNaN(  $(".amplitud_compare").val()) ) ?  $(".amplitud_compare").val() : 20; //amplitud
 
- 	var bit_0 = (! isNaN(  $("#value_bit_0").val()) ) ?  $("#value_bit_0").val() : 1;   // para 0
+ 	var bit_0 = (! isNaN(  $(".bit_0_compare").val()) ) ?  $(".bit_0_compare").val() : 1;   // para 0
 
- 	var bit_1 = (! isNaN(  $("#value_bit_1").val()) ) ?  $("#value_bit_1").val() : 3;   // para 1 
+ 	var bit_1 = (! isNaN(  $(".bit_1_compare").val()) ) ?  $(".bit_1_compare").val() : 3;   // para 1 
+
+ 		
 
  	}else{
 
@@ -55,11 +57,10 @@ define(["chart", "message"], function($ , message ) {
  	var bit_0 = (! isNaN(  $("#value_bit_0").val()) ) ?  $("#value_bit_0").val() : 1;   // para 0
 
  	var bit_1 = (! isNaN(  $("#value_bit_1").val()) ) ?  $("#value_bit_1").val() : 3;   // para 1 
-
- 		
  		
  	}
 
+ 		console.log(this.conf.compare)
 
  		this.graficar(bits_data , amplitud, bit_0 ,bit_1)
 
@@ -112,12 +113,11 @@ define(["chart", "message"], function($ , message ) {
 
 	this.procesar(bits);
 
-	this.conf.compare = true;
 
 	},
 
 	graficar : function(bits_to_graph , amplitud , bit_0 , bit_1 ){
-
+	
 	var	graph_exist = [] ;
 
 // begin graph

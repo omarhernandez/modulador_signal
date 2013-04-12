@@ -17,7 +17,10 @@ define(["backbone",  "EntradaBinaria"],function(Backbone){
  	 	  $(".modular").bind("click",function(){
        
        bits_entree = $(bits).val();
+      EntradaBinaria.borrar();
+       
         
+        EntradaBinaria.conf.compare = false;
         EntradaBinaria.procesar( $(".bits_entree").val());
          
           
@@ -63,6 +66,7 @@ define(["backbone",  "EntradaBinaria"],function(Backbone){
 
       $(".compare_signal").bind("click",function(){
 
+         EntradaBinaria.conf.compare = true;
         EntradaBinaria.comparar($(".bits_compare").val());
 
       });
