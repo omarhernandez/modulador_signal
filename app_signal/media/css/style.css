@@ -29,6 +29,9 @@
     width: 40px;
 }
  
+ .bits_compare {
+    width: 202px !important;
+}
 
 body{
     background: #f5f5f5;

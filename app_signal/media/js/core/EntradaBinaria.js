@@ -1,7 +1,11 @@
 define(["chart", "message"], function($ , message ) {
  
     EntradaBinaria = {}
+    var data = [];
 
+    var recta = [[0, 0] , [19 , 0]];
+ 
+ 	data.push(recta);
 
    return EntradaBinaria  = {
 
@@ -13,10 +17,17 @@ define(["chart", "message"], function($ , message ) {
 
 	 intRegex  : /[0-1 -()+]+$/ ,
 
+	 compare : false
+
 
 	} ,
 
+	borrar : function(){
 
+		data = [];
+		data.push(recta);
+
+	},
 
 	validar : function(bits_data , conf ,data_valid ){
 
@@ -27,8 +38,32 @@ define(["chart", "message"], function($ , message ) {
  	
  	if(is_valid){
 
- 			 
- 		this.graficar(bits_data)
+
+ 	if (this.conf.compare){
+
+	var amplitud = (! isNaN(  $("#value_amplitud").val()) ) ?  $("#value_amplitud").val() : 20; //amplitud
+
+ 	var bit_0 = (! isNaN(  $("#value_bit_0").val()) ) ?  $("#value_bit_0").val() : 1;   // para 0
+
+ 	var bit_1 = (! isNaN(  $("#value_bit_1").val()) ) ?  $("#value_bit_1").val() : 3;   // para 1 
+
+ 	}else{
+
+
+ 	var amplitud = (! isNaN(  $("#value_amplitud").val()) ) ?  $("#value_amplitud").val() : 20; //amplitud
+
+ 	var bit_0 = (! isNaN(  $("#value_bit_0").val()) ) ?  $("#value_bit_0").val() : 1;   // para 0
+
+ 	var bit_1 = (! isNaN(  $("#value_bit_1").val()) ) ?  $("#value_bit_1").val() : 3;   // para 1 
+
+ 		
+ 		
+ 	}
+
+
+ 		this.graficar(bits_data , amplitud, bit_0 ,bit_1)
+
+
 
  	}else{
 
@@ -73,8 +108,17 @@ define(["chart", "message"], function($ , message ) {
 	this.validar(bits_data , conf ,data_valid );
 
 	},
+	comparar : function(bits){
 
-	graficar : function(bits_to_graph){
+	this.procesar(bits);
+
+	this.conf.compare = true;
+
+	},
+
+	graficar : function(bits_to_graph , amplitud , bit_0 , bit_1 ){
+
+	var	graph_exist = [] ;
 
 // begin graph
 //********************************************************************************************
@@ -108,13 +152,8 @@ define(["chart", "message"], function($ , message ) {
 
 	var vT ; // forma de la onda FSK binaria 
 
- 	var A = (! isNaN(  $("#value_amplitud").val()) ) ?  $("#value_amplitud").val() : 20; //amplitud
 
- 	f1 = (! isNaN(  $("#value_bit_0").val()) ) ?  $("#value_bit_0").val() : 1;   // para 0
-
- 	f2 = (! isNaN(  $("#value_bit_1").val()) ) ?  $("#value_bit_1").val() : 3;   // para 1 
-
-	var f = 1 / A ; //desplazamientos de igual magnitud pero sentidos opuestos de la 
+	var f = 1 / amplitud ; //desplazamientos de igual magnitud pero sentidos opuestos de la 
 		         //frecuencia de la señal 
 
 		    	 // t = tiempo
@@ -134,7 +173,7 @@ define(["chart", "message"], function($ , message ) {
 			for (var t = current_bit ; t <  offset; t += 0.001){
  			
 								
-				d1.push([ t , (A)* Math.sin(2* Math.PI * t *f2) ]); // un 1     
+				d1.push([ t , (amplitud)* Math.sin(2* Math.PI * t *bit_1) ]); // un 1     
  						
 			}  // end for bit == 0
 
@@ -145,7 +184,7 @@ define(["chart", "message"], function($ , message ) {
 						
 			for (var t = current_bit ; t <  offset; t += .0001){
  			
- 			   d1.push([ t , A* Math.sin(2* Math.PI * t *f1) ]);  // un 0
+ 			   d1.push([ t , amplitud* Math.sin(2* Math.PI * t *bit_0) ]);  // un 0
 					    
  						
 			}  // end for bit == 1
@@ -161,20 +200,57 @@ define(["chart", "message"], function($ , message ) {
 //********************************************************************************************
 //*******************************************************************************************
 //********************************************************************************************
+data.push({ label: "Bits["+bits_to_graph+"]",  data: d1} )
 
+
+console.log(data.length)
  
  
+  	if (this.conf.compare){
+
+  		  var somePlot = $.plot($("#graph"), data ,	 {
+     	 series: {
+            lines: { show: true },
+            points: { show: false }
+         } ,
+
+         grid: {
+            backgroundColor: { colors: ["#fff", "#eee"] }
+         }
+      });
+ 
+    somePlot.draw();
+
+}else{
+
     //[x , y ] direccion ----> x 
 
-    var recta = [[0, 0] , [19 , 0]];
- 
+
      // a null signifies separate line segments
      //var d3 = [[1, 12], [7, 12], null, [7, 2.5], [12, 2.5]];
      
-     var somePlot = $.plot($("#graph"), [ d1 , recta ]);
+     var somePlot = $.plot($("#graph"),data, 
+     	  
+     	 {
+     	 series: {
+            lines: { show: true },
+            points: { show: false }
+         } ,
+
+         grid: {
+            backgroundColor: { colors: ["#fff", "#eee"] }
+         }
+      }
+
+
+        );
     
    // somePlot.getData()[1].lines.lineWidth = 10;
     somePlot.draw();
+
+
+}
+
 
 }//end graph
 

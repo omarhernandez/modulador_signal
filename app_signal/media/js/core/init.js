@@ -27,6 +27,7 @@ define(["backbone",  "EntradaBinaria"],function(Backbone){
          
         $(".borrar").bind("click",function(){
         
+        EntradaBinaria.borrar();
        
        $(bits).val("");
        $(".bits_data").hide();
@@ -51,14 +52,20 @@ define(["backbone",  "EntradaBinaria"],function(Backbone){
  
       })
 
-      //------------------------------------------------------------
+      //---------- buttons del menu --------------------------------------------------
 
       $(".button_settings").bind("click",function(){ $(".settings").toggle(); });
 
-      $(".button_compare").bind("click",function(){ $(".compare").toggle(); });
+      $(".button_compare,.delete_signal").bind("click",function(){ $(".compare").toggle(); });
 
 
+      //------------- comparar la señal --------------------------------------------------------------
 
+      $(".compare_signal").bind("click",function(){
+
+        EntradaBinaria.comparar($(".bits_compare").val());
+
+      });
 
 
 
