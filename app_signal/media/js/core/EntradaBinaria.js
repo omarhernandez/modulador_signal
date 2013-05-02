@@ -179,7 +179,7 @@ define(["chart", "message" ], function($ , message  ) {
  						
 			  // end for bit == 0
 
-            data = [ d2 ];
+            //data = [ d2 ];
 
 
      	}else{ // cuando el bit es 0
@@ -189,7 +189,7 @@ define(["chart", "message" ], function($ , message  ) {
  			
  			    d2.push([ t , amplitud* Math.sin(2* Math.PI * t *bit_0) ]);  // un 0
 			 
-            data = [ d2 ];
+            //data = [ d2 ];
 	    
  						
 			 // end for bit == 1

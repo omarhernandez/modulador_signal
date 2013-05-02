@@ -3,20 +3,12 @@
 .compare,.settings{
     display: none;
 }
-
-    #placeholder .button {
-        position: absolute;
-        cursor: pointer;
-    }
-    #placeholder div.button {
-        font-size: smaller;
-        color: #999;
-        background-color: #eee;
-        padding: 2px;
-    }
+ 
     .message {
-        padding-left: 50px;
-        font-size: smaller;
+ padding-left: 49px;
+margin-bottom: 11px;
+font-size: 19px;
+color: #999;
     }
  
 .span > ul {

@@ -98,7 +98,7 @@
                     markingsColor: "#f4f4f4",
                     markingsLineWidth: 2,
                     // interactive stuff
-                    clickable: false,
+                    clickable: true,
                     hoverable: false,
                     autoHighlight: true, // highlight in case mouse is near
                     mouseActiveRadius: 10 // how far the mouse can be away to activate an item
