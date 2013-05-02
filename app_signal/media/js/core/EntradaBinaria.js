@@ -206,9 +206,9 @@ define(["chart", "message" ], function($ , message  ) {
 //*******************************************************************************************
 //********************************************************************************************
 $graph_data =  $("#graph");
-/*
-data.push({ label: "Bits["+bits_to_graph+"]",  data: d1} )
 
+data_graph.push({ label: "Bits["+bits_to_graph+"]",  data: d2} )
+/*
 
  
   	if (this.conf.compare){
