@@ -245,7 +245,9 @@ var plot = $.plot( $graph_data ,data , options );
         },
          grid: {
             backgroundColor: { colors: ["#fff", "#eee"] }
-         }
+         } ,
+
+           crosshair: { mode: "x" }
     };
 
  
