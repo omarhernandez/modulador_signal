@@ -7,7 +7,8 @@ urlpatterns = patterns('',
     
 
 	url(r'^' , include('apps.inicio.urls')) , #adding and registering urls path init  
- 
+ 	
+ 	url(r'^' , include('apps.save.urls')) ,
 )
 
 

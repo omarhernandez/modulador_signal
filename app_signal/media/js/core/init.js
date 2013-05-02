@@ -71,11 +71,39 @@ define(["backbone",  "EntradaBinaria"],function(Backbone){
 
       });
 
+      //---------- guarda archivo
+
+      $(".menu").bind("click",function(){
 
 
-       } // init 
+
+      $.ajax({
+
+        data: JSON.stringify( { 'content' : "mi contenidooo" } ),
+  
+        contentType: 'application/json',
+  
+
+        url : "/save/" ,
+
+        type : "POST"  
+ 
+        ,success: function(data){
+
+        // window.location = /save/;
+
+        }
+
+
+
+      })
       
 
+
+       }); // init 
+      
+
+            }
        });// model 
 
 

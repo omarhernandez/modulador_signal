@@ -14,7 +14,7 @@
  	},
 
 
- 	imprimir :function(){
+ 	abrir :function(){
 
 
 
