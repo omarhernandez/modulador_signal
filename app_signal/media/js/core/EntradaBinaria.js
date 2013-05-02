@@ -146,7 +146,7 @@ define(["chart", "message" ], function($ , message  ) {
 
 	var d2 = [];
 
-	var data_graph = [];
+ 
 
 // ********************************************************************************************
 
@@ -179,17 +179,17 @@ define(["chart", "message" ], function($ , message  ) {
  						
 			  // end for bit == 0
 
-            data_graph = [ d2 ];
+            data = [ d2 ];
 
 
      	}else{ // cuando el bit es 0
  
 						
-			for (var t = current_bit ; t <  offset; t += 0.01)
+			for (var t = current_bit ; t <  offset; t += 0.001)
  			
  			    d2.push([ t , amplitud* Math.sin(2* Math.PI * t *bit_0) ]);  // un 0
 			 
-            data_graph = [ d2 ];
+            data = [ d2 ];
 	    
  						
 			 // end for bit == 1
@@ -207,77 +207,54 @@ define(["chart", "message" ], function($ , message  ) {
 //********************************************************************************************
 $graph_data =  $("#graph");
 
-data_graph.push({ label: "Bits["+bits_to_graph+"]",  data: d2} )
-/*
-
+data.push({ label: "Bits["+bits_to_graph+"]",  data: d2} )
  
+console.dir(data)
+
   	if (this.conf.compare){
 
-  		  var somePlot = $.plot( $graph_data , data ,	 {
-     	 series: {
-            lines: { show: true },
-            points: { show: false }
-         } ,
-
-         grid: {
-            backgroundColor: { colors: ["#fff", "#eee"] }
-         }
-      });
- 
-    somePlot.draw();
-
-}else{
-
-    //[x , y ] direccion ----> x 
-
-
-     // a null signifies separate line segments
-     //var d3 = [[1, 12], [7, 12], null, [7, 2.5], [12, 2.5]];
-     
-     var options = {
-        series: {
-
-        	lines: { show: true },
-            
-            points: { show: false }
-
-         },
-       
-       xaxis: { zoomRange: [0.1, 10], panRange: [-10, 10] },
-       
-        yaxis: { zoomRange: [0.1, 10], panRange: [-10, 10] },
-       
+  	       var options = {
+        series: { lines: { show: true },  points: { show: false } , shadowSize: 0 },
+       //xaxis: { zoomRange: [0.1, 10], panRange: [-10, 10] },
+        //yaxis: { zoomRange: [0.1, 10], panRange: [-10, 10] },
         zoom: {
             interactive: true
         },
         pan: {
             interactive: true
-        } ,
+        },
          grid: {
             backgroundColor: { colors: ["#fff", "#eee"] }
          }
     };
 
+ 
+var plot = $.plot( $graph_data ,data , options );
 
-     var plot = $.plot( $graph_data ,data, options );
+}else{
     
-   // somePlot.getData()[1].lines.lineWidth = 10;
-   // somePlot.draw();
-*/
+        var options = {
+        series: { lines: { show: true },  points: { show: false } , shadowSize: 0 },
+       //xaxis: { zoomRange: [0.1, 10], panRange: [-10, 10] },
+        //yaxis: { zoomRange: [0.1, 10], panRange: [-10, 10] },
+        zoom: {
+            interactive: true
+        },
+        pan: {
+            interactive: true
+        },
+         grid: {
+            backgroundColor: { colors: ["#fff", "#eee"] }
+         }
+    };
+
+ 
+var plot = $.plot( $graph_data ,data , options );
+
+ 
  // ------------------------------------------------------------------------------------------------------
 
-function sumf(f, t, m) {
-        var res = 0;
-        for (var i = 1; i < m; ++i)
-            res += f(i * i * t) / (i * i);
-        return res;
-    }
-    
-    var d1 = [];
-    for (var t = 0; t <= 2 * Math.PI; t += 0.01)
-        d1.push([sumf(Math.cos, t, 10), sumf(Math.sin, t, 10)]);
-    var data1 = [ d1 ];
-
+ 
  
     var options = {
         series: { lines: { show: true },  points: { show: false } , shadowSize: 0 },
@@ -291,8 +268,8 @@ function sumf(f, t, m) {
         }
     };
 
-console.dir(data_graph);
-var plot = $.plot( $graph_data ,data_graph , options );
+ 
+var plot = $.plot( $graph_data ,data , options );
  
 //------------------------------------------------------------------------------------------------------ zoom
 
@@ -320,6 +297,7 @@ var plot = $.plot( $graph_data ,data_graph , options );
          $.plot.zoomOut();
     });
 
+    /*
     // and add panning buttons
     
     // little helper for taking the repetitive work out of placing
@@ -335,8 +313,8 @@ var plot = $.plot( $graph_data ,data_graph , options );
     addArrow('right', 25, 60, { left: 100 });
     addArrow('up', 40, 45, { top: -100 });
     addArrow('down', 40, 75, { top: 100 });
-
-//}
+*/
+ }
 
 
 }//end graph
