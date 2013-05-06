@@ -5,7 +5,8 @@ La Modulación por desplazamiento de frecuencia o FSK, (Frequency Shift Keying) 
 En la modulación digital, a la relación de cambio a la entrada del modulador se le llama bit-rate y tiene como unidad el bit por segundo (bps).
 A la relación de cambio a la salida del modulador se le llama baud-rate. En esencia el baud-rate es la velocidad o cantidad de símbolos por segundo.
 
-(http://bindsme.com/files/fsk.png+)
+![Omar](http://bindsme.com/files/fsk.png+)
+
 
 #Clonar el Proyecto
 
