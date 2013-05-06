@@ -1,5 +1,11 @@
 
 @import url(font.css);
+
+ul.bits_data li{
+
+    font-family: "osanslight";
+}
+
 .compare,.settings{
     display: none;
 }

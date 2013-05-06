@@ -35,7 +35,13 @@ define(["backbone",  "EntradaBinaria"],function(Backbone){
        $(bits).val("");
        $(".bits_data").hide();
        $("#graph").html("").hide();
+
         $(".alert , .text_new").fadeIn("slow");
+        $(".remove_data , .message").fadeOut("slow",function(){
+
+          this.remove();
+
+        });
         
         
         })

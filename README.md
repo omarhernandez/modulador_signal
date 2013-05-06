@@ -1,36 +1,41 @@
-Modulador_signal
-================
-
-Proyecto de modulacion de señales - Transmision y Comunicacion de Datos
+#Modulador_signal
 
 
-Clonar el Proyecto
-==================
+Proyecto de modulacion de señales - FSK
 
 
-`git clone git@github.com:omarhernandez/modulador_signal.git
-`
+#Clonar el Proyecto
 
+
+	git clone git@github.com:omarhernandez/modulador_signal.git
 
 
 Dependencias
+
+	pip install django
+	pip install pyjade
+
+
+
+Corriendo el proyecto
+
+
+	python manage.py runserver
+
+
+
+Tecnologias
 ============
 nodejs, 
 
-coffescript ,
-
 jade,
-
-Sass,
 
 requirejs,
 
-backbone
-,
+
 django
 ,
-ruby 
-,
+
 
 javascript 
 

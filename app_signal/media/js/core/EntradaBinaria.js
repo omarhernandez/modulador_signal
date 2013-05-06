@@ -49,7 +49,7 @@ define(["chart", "message" ], function($ , message  ) {
 
  	var bit_1 = (! isNaN(  $(".bit_1_compare").val()) ) ?  $(".bit_1_compare").val() : 3;   // para 1 
 
- 		
+
 
  	}else{
 
@@ -61,6 +61,8 @@ define(["chart", "message" ], function($ , message  ) {
  	var bit_1 = (! isNaN(  $("#value_bit_1").val()) ) ?  $("#value_bit_1").val() : 3;   // para 1 
  		
  	}
+
+
 
  		console.log(this.conf.compare)
 
@@ -147,7 +149,6 @@ define(["chart", "message" ], function($ , message  ) {
 	var d2 = [];
 
  
-
 // ********************************************************************************************
 
 	// vT = vp * sen ( 2 * PI * f1 * t )
@@ -207,10 +208,13 @@ define(["chart", "message" ], function($ , message  ) {
 //********************************************************************************************
 $graph_data =  $("#graph");
 
-data.push({ label: "Bits["+bits_to_graph+"]",  data: d2} )
- 
-console.dir(data)
+var bit_push = "Bits["+bits_to_graph+"]"; // Bits[1010010101000010]
 
+$(".data_bits").append('<li class="remove_data" >'+bit_push+'</li>');
+               
+
+data.push({  data: d2} )
+ 
   	if (this.conf.compare){
 
   	       var options = {
@@ -235,7 +239,7 @@ var plot = $.plot( $graph_data ,data , options );
     
         var options = {
         series: { lines: { show: true },  points: { show: false } , shadowSize: 0 },
-       //xaxis: { zoomRange: [0.1, 10], panRange: [-10, 10] },
+        //xaxis: { zoomRange: [0.1, 10], panRange: [-10, 10] },
         //yaxis: { zoomRange: [0.1, 10], panRange: [-10, 10] },
         zoom: {
             interactive: true
@@ -251,12 +255,7 @@ var plot = $.plot( $graph_data ,data , options );
     };
 
  
-var plot = $.plot( $graph_data ,data , options );
-
- 
- // ------------------------------------------------------------------------------------------------------
-
- 
+    var plot = $.plot( $graph_data ,data , options );
  
     var options = {
         series: { lines: { show: true },  points: { show: false } , shadowSize: 0 },
