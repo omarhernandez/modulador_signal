@@ -26,16 +26,16 @@ Corriendo el proyecto
 
 Tecnologias
 ============
-nodejs, 
 
 jade,
 
-requirejs,
-
+requirejs
 
 django
-,
-
 
 javascript 
+
+Jquery
+
+jquery.flot ( mas modificaciones propias para conectarlo con RequireJS)
 
