@@ -160,6 +160,8 @@ define(["chart", "message" ], function($ , message  ) {
 		         //frecuencia de la señal 
 
 		    	 // t = tiempo
+	var sum = 0,
+	    fourier_square_wave = 0;
 	 
 //********************************************************************************************
 //*******************************************************************************************
@@ -168,16 +170,33 @@ define(["chart", "message" ], function($ , message  ) {
      	
 
      	var offset =  current_bit + 1 ;
+     	//var offset =  100;//current_bit + 1 ;
  
 
      	if ( bits_to_graph[current_bit] == 1){ // cuando el BIT es 1
 
  
-			for (var t = current_bit ; t <  offset; t += 0.001)
- 			
+			for (var t = current_bit ; t <  offset; t += 0.1){
+			//for (var k = 1 ; k <  offset; k++){
 								
-				d2.push([ t , (amplitud)* Math.sin(2* Math.PI * t *bit_1) ]); // un 1     
- 						
+				////FSK
+				//d2.push([ t , (amplitud)* Math.sin(2* Math.PI * t *bit_1) ]); // un 1     
+				//Fourier Triangle first three terms in the infinite Fourier series that converges to a triangle wave
+				//d2.push([ t , (8 /  (Math.PI*2)) * (Math.sin(t) - Math.sin(3*t)/9 + Math.sin(5*t)/25) ]); // un 1     
+				//Square wave fourier
+				fourier_square_wave = 0;
+				for ( i = 1 ; i<=100 ; i++){
+
+						fourier_square_wave += (Math.sin(2*Math.PI*( 2*i-1 )*f*t))  / ( 2*i-1)
+						console.log(fourier_square_wave)
+
+				}
+
+
+				d2.push([ t , (4 / (Math.PI)) * fourier_square_wave ]); // un 1     
+
+
+			}
 			  // end for bit == 0
 
             //data = [ d2 ];
